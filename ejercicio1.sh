@@ -1,18 +1,18 @@
 #!/bin/bash
-if [ -z $1 ]
+function fichero() {
+if [ -f $1 ]
 then
-	echo "Debe ingresar un argumento"
+return 0
 else
-	if [ -d $1 ]
-	then
-		echo "Esto si es un directorio"
-	else
-		echo "No es un directorio, se chequea si es un fichero"
-		if [ -f $1 ]
-		then
-			echo "si es un archivo"
-		else
-			echo "tampoco es un archivo"
-		fi
-	fi
+return 1
 fi
+}
+echo "ingrese el nombre de un fichero" ; read f
+if fichero $f
+then
+echo "$f existe"
+else
+echo "$f no existe"
+fi
+
+
