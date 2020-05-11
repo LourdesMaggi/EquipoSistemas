@@ -1,6 +1,6 @@
 #!/bin/bash
 PS3="Elija una opcion:"
-OPCIONES="Ejercicio1 Ejercicio2 Ejercicio3 Salir"
+OPCIONES="Ejercicio1 Ejercicio2 Ejercicio3 Ejercicio4 Ejercicio5 Ejercicio6 Salir"
 select opt in $OPCIONES; do
 	if [ "$opt" = "Salir" ];
 	then
