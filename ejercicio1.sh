@@ -30,31 +30,12 @@ else
 fi	
 }
 
-function pesofichero {
-pesofichero=$ficp
-if [ -z "$pesofichero" ]
-then
-	echo "no ingreso un argumento"
-else
-	if [ -f $pesofichero ]
-	then
-		echo "El fichero que ingresó pesa:"
-		ls -hs $pesofichero
-	else
-		echo "El fichero que ingresó no existe"
-	fi
-fi
-}
-
-
-PS3="Elija una opcion:"
-OPCIONES="Directorio Fichero PesoFichero Salir"
+OPCIONES="Directorio Fichero Volver"
 select opt in $OPCIONES; do
-	if [ "$opt" = "Salir" ];
+	if [ "$opt" = "Volver" ];
 	then
-		clear
-		echo "Saliendo del programa"
-		exit
+		echo volviendo al menu principal
+		./menu.sh
 	elif [ "$opt" = "Directorio" ];
 	then
 		echo Ingrese directorio a chequear
@@ -65,17 +46,12 @@ select opt in $OPCIONES; do
 		echo Ingrese Fichero a chequear
 	       	read fich 
 		fichero $fich
-	elif [ "$opt" = "PesoFichero" ];
-	then
-		echo Ingrese Fichero a chequear
-			read ficp
-		pesofichero $ficp
 	else
+		clear
 		echo opcion erronea
 		echo Las opciones son:
 		echo 1: Directorio
 		echo 2: Fichero
-		echo 3: PesoFichero
-		echo 4: Volver al menu principal
+		echo 3: Volver al menu principal
 	fi
 done
