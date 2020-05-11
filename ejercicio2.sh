@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Ingrese un argumento para ver su tamaño"
+echo "Ingrese Carpeta o Archivo para ver su tamaño"
 read var
 var=$var
 if [ -z "$var" ]
