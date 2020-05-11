@@ -1,27 +1,25 @@
 #!/bin/bash
 function directorio {
 echo "Ingrese nombre del Directorio"; read $1
-var=$1
-if [ -z "$var" ]
+if [ -z $1 ]
 then
 	echo "No ingreso un argumento"
 else
 
-	if [ -d "$var" ]
+	if [ -d $1 ]
 		then
-			echo "El directorio $var existe"
+			echo "El directorio $1 existe"
 	fi
 fi
 }
 
 function fichero {
 echo "Ingrese nombre del fichero"; read $1
-var=$1
-if [ -f "$var" ]
+if [ -f $1 ]
 then 
 	echo "Lo que ingreso es un fichero"
 else
-echo "El fichero $var no existe"
+echo "El fichero $1 no existe"
 fi	
 }
 
