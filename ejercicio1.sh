@@ -1,29 +1,31 @@
 #!/bin/bash
 function directorio {
-if [ -z $1 ]
+directorio=$direc
+if [ -z "$directorio" ]
 then
 	echo No ingreso un argumento
 else
 
-	if [ -d $1 ]
+	if [ -d "$directorio" ]
 	then
-		echo El directorio $1 existe
+		echo "Lo que ingreso es un directorio"
 	else
-		echo El directorio $1 no existe
+		echo "El directorio que ingreso no existe"
 	fi
 fi
 }
 
 function fichero {
-if [-z $1]
+fichero=$fich
+if [ -z "$fichero" ]
 then
 	echo "No ingreso un argumento"
 else
-	if [ -f $1 ]
+	if [ -f "$fichero" ]
 	then 
 		echo "Lo que ingreso es un fichero"
 	else
-		echo "El fichero $1 no existe"
+		echo "El fichero que ingreso no existe"
 	fi
 fi	
 }
@@ -36,14 +38,20 @@ select opt in $OPCIONES; do
 		./menu.sh
 	elif [ "$opt" = "Directorio" ];
 	then
-		echo Ingrese directorio a chequear; read $1
-		directorio $1 
+		echo Ingrese directorio a chequear
+	       	read direc
+		directorio $direc
 	elif [ "$opt" = "Fichero" ];
 	then
-		echo Ingrese Fichero a chequear; read $1
-		fichero $1
+		echo Ingrese Fichero a chequear
+	       	read fich 
+		fichero $fich
 	else
 		clear
 		echo opcion erronea
+		echo Las opciones son:
+		echo 1: Directorio
+		echo 2: Fichero
+		echo 3: Volver al menu principal
 	fi
 done
