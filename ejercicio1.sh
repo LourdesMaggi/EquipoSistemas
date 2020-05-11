@@ -1,18 +1,44 @@
 #!/bin/bash
-function fichero() {
-if [ -f $1 ]
+function directorio {
+echo "Ingrese nombre del Directorio"; read $1
+var=$1
+if [ -z "$var" ]
 then
-return 0
+	echo "No ingreso un argumento"
 else
-return 1
+
+	if [ -d "$var" ]
+		then
+			echo "El directorio $var existe"
+	fi
 fi
 }
-echo "ingrese el nombre de un fichero" ; read f
-if fichero $f
-then
-echo "$f existe"
+
+function fichero {
+echo "Ingrese nombre del fichero"; read $1
+var=$1
+if [ -f "$var" ]
+then 
+	echo "Lo que ingreso es un fichero"
 else
-echo "$f no existe"
-fi
+echo "El fichero $var no existe"
+fi	
+}
 
-
+OPCIONES="Directorio Fichero Volver"
+select opt in $OPCIONES; do
+	if [ "$opt" = "Volver" ];
+	then
+		echo volviendo al menu principal
+		./menu.sh
+	elif [ "$opt" = "Directorio" ];
+	then
+		directorio
+	elif [ "$opt" = "Fichero" ];
+	then
+		fichero
+	else
+		clear
+		echo opcion erronea
+	fi
+done
