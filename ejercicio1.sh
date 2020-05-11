@@ -30,12 +30,13 @@ else
 fi	
 }
 
-OPCIONES="Directorio Fichero Volver"
+OPCIONES="Directorio Fichero Salir"
 select opt in $OPCIONES; do
-	if [ "$opt" = "Volver" ];
+	if [ "$opt" = "Salir" ];
 	then
-		echo volviendo al menu principal
-		./menu.sh
+		clear
+		echo "Saliendo del programa"
+		exit
 	elif [ "$opt" = "Directorio" ];
 	then
 		echo Ingrese directorio a chequear
@@ -46,8 +47,7 @@ select opt in $OPCIONES; do
 		echo Ingrese Fichero a chequear
 	       	read fich 
 		fichero $fich
-	else
-		clear
+	else		
 		echo opcion erronea
 		echo Las opciones son:
 		echo 1: Directorio
