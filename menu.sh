@@ -19,6 +19,10 @@ select opt in $OPCIONES; do
 	then
 		echo Abriendo Ejercicio3
 		./ejercicio3.sh
+	elif [ "$opt" = "Ejercicio4" ];
+	then
+		echo Abriendo Ejercicio4
+		./ejercicio4.sh
 	else
 		echo opcion erronea
 		echo Las opciones son:
