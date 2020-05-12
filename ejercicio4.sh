@@ -1,12 +1,28 @@
 #!/bin/bash
-#Para este ejercicio hay que modificar el archivo .bash_profile
-#y agregar la ruta del bash que estamos creando a continuación.
+function quiensoy {
+	cat ./bienvenida.sh
+	echo "Para que este ejercicio sea funcional debera modificar el archivo .bash_profile"
+	echo "Dentro del mismo es necesario indicar la ruta del script que mostramos como ejemplo"
+}
 
-user=$(whoami)
-if [ "$user" = 'servidor' ]
+PS3="Elija una opcion: "
+OPCIONES="Bienvenida Volver Salir"
+select opt in $OPCIONES; do
+	if [ "$opt" = "Volver" ];
 	then
-		echo "Bienvenido Nicolas Ezequiel Luzardo Montes de Oca" 
+		echo volviendo al menu principal
+		./menu.sh
+	elif [ "$opt" = "Bienvenida" ];
+	then
+		quiensoy
+	elif [ "$opt" = "Salir" ];
+	then
+		exit 0
 	else
-		echo "Usted no es Nicolas Ezequiel Luzardo Montes de Oca"
-fi
-
+		clear
+		echo Las opciones son:
+		echo 1: Bienvenida
+		echo 2: Volver al menu principal
+		echo 3: Salir
+	fi
+done
