@@ -29,8 +29,8 @@ else
 	fi
 fi	
 }
-
-OPCIONES="Directorio Fichero Volver"
+PS3="Elija una opcion"
+OPCIONES="Directorio Fichero Volver Salir"
 select opt in $OPCIONES; do
 	if [ "$opt" = "Volver" ];
 	then
@@ -46,12 +46,15 @@ select opt in $OPCIONES; do
 		echo Ingrese Fichero a chequear
 	       	read fich 
 		fichero $fich
+	elif [ "$opt" = "Salir" ];
+	then
+		exit 0
 	else
 		clear
-		echo opcion erronea
 		echo Las opciones son:
 		echo 1: Directorio
 		echo 2: Fichero
 		echo 3: Volver al menu principal
+		echo 4: Salir
 	fi
 done
