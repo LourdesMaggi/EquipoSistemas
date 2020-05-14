@@ -11,7 +11,7 @@ select opt in $OPCIONES; do
 	if [ "$opt" = "Volver" ];
 	then
 		echo volviendo al menu principal
-		./menu.sh
+		exit 1
 	elif [ "$opt" = "Bienvenida" ];
 	then
 		quiensoy
