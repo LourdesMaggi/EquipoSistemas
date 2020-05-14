@@ -35,7 +35,7 @@ select opt in $OPCIONES; do
 	if [ "$opt" = "Volver" ];
 	then
 		echo volviendo al menu principal
-		./menu.sh
+		exit 0
 	elif [ "$opt" = "Directorio" ];
 	then
 		echo Ingrese directorio a chequear
@@ -48,7 +48,7 @@ select opt in $OPCIONES; do
 		fichero $fich
 	elif [ "$opt" = "Salir" ];
 	then
-		exit 0
+		exit 1
 	else
 		clear
 		echo Las opciones son:
