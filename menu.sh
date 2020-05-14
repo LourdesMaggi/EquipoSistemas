@@ -49,7 +49,7 @@ function menu {
         elif [ "$opt" = "Ejercicio6" ];
         then
                 echo Abriendo Ejercicio6
-                ./ejercicio6.sh -a
+                ./ejercicio6.sh -m
                 salir $?
                 break
 	else
