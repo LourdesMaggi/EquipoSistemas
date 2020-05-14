@@ -37,11 +37,11 @@ PS3="Elija una opción: "
 select opt in $OPCIONES; do
 	if [ "$opt" = "Salir" ];
 	then
-		exit 0
+		exit 1
 	elif [ "$opt" = "Volver" ];
 	then
 		echo volviendo al menu principal
-		./menu.sh
+		exit 0
 
 	elif [ "$opt" = "Carpeta" ];
 	then
